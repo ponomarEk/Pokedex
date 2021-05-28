@@ -1,0 +1,36 @@
+.pokemon_block{
+    width: 140px;
+    height: 155px;
+    border: darkgrey 3px solid;
+    margin: 10px;
+    text-align: center;
+}
+.pokemon_block:hover{
+    background-color: rgb(255, 238, 241);
+}
+.avatar{
+    height: 60px;
+    width: 70px;
+    margin: 0 auto;
+    margin-top: 8px;
+    margin-bottom: 7px;
+    border: solid grey 1px;
+    padding: 5px;
+    background-color: white;
+}
+.avatar img{
+    height: 60px;
+    width: 70px;
+}
+.types{
+    margin-top: 8px;
+}
+.types span{
+    display: inline-block;
+    margin: 0 3px;
+    background-color: darkkhaki;
+    border: grey 1px solid;
+    padding: 2px;
+    border-radius: 5px;
+}
+

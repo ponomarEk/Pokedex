@@ -1,8 +1,12 @@
 .current_pokemon{
+    position: fixed;
+    top: 40%;
+    right: 15%;
+    transform: translate(-50%,-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 35%;
+    width: 300px;
     margin-left: 5%;
     margin-top: 80px;
     border: solid 2px grey;

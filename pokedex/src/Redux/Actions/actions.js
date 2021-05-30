@@ -1,7 +1,7 @@
 export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
 export const GET_TYPES_SUCCESS = 'GET_TYPES_SUCCESS';
 export const GET_POKEMON_PROPS_SUCCESS = 'GET_POKEMON_PROPS_SUCCESS';
-export const CLEAR_TYPES_ARRAY = 'CLEAR_TYPES_ARRAY';
+export const TOGGLE_FETCHING_TYPE = 'TOGGLE_FETCHING_TYPE';
 
 const axios = require('axios');
 
@@ -16,7 +16,10 @@ export const getData = (url) => {
     return dispatch => {
         axios.get(url).then(resp => {
             const payload = resp.data.results;
-            dispatch(getDataSuccess(payload));
+            setTimeout(()=> {
+                dispatch(toggleFetchingType(false));
+                dispatch(getDataSuccess(payload));
+            },1500);
         });
     }
 }
@@ -52,8 +55,9 @@ export const getPokemonProps = (url) => {
     }
 }
 
-export const clearTypesArray = () => {
+const toggleFetchingType = (newValue) => {
     return {
-        type: CLEAR_TYPES_ARRAY
+        type: TOGGLE_FETCHING_TYPE,
+        payload: newValue
     }
 }

@@ -1,13 +1,10 @@
-import { GET_DATA_SUCCESS, GET_TYPES_SUCCESS, GET_POKEMON_PROPS_SUCCESS } from '../Actions/actions';
+import { GET_DATA_SUCCESS, GET_TYPES_SUCCESS, GET_POKEMON_PROPS_SUCCESS, TOGGLE_FETCHING_TYPE } from '../Actions/actions';
 
 let initialState = {
-    pokemons: [
-
-    ],
-    types: [
-
-    ],
-    currentPokemon: null
+    pokemons: [],
+    types: [],
+    currentPokemon: null,
+    isFetching: true
 }
 
 export const reducer = (state = initialState, action) => {
@@ -15,7 +12,7 @@ export const reducer = (state = initialState, action) => {
         case GET_DATA_SUCCESS:
             return {
                 ...state,
-                pokemons: action.payload
+                pokemons: [...state.pokemons, ...action.payload]
             }
         case GET_TYPES_SUCCESS:
             return {
@@ -29,6 +26,11 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentPokemon: action.payload
+            }
+        case TOGGLE_FETCHING_TYPE:
+            return {
+                ...state,
+                isFetching: action.payload
             }
         default: return state;
     }

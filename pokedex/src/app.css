@@ -1,8 +1,7 @@
 .pokemons_render{
     width: 850px;
-    position: absolute;
-    top: 10%;
-    left: 10%;
+    margin-left: 200px;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
 }

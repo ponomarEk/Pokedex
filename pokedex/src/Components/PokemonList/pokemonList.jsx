@@ -1,10 +1,10 @@
 import React from 'react';
 import './pokemonList.css';
 import PokemonBlock from '../PokemonBlock/pokemonBlock';
+import { useSelector } from 'react-redux';
 
-const PokemonList = (props) => {
-    const { pokemons, getPokemonProps, getTypes, types } = props;
-
+const PokemonList = () => {
+    const pokemons = useSelector(state => state.pokemons);
     return (
         <div className={'pokemon_list'}>
             {
@@ -12,11 +12,8 @@ const PokemonList = (props) => {
                     pokemons.map((curr, i) => <PokemonBlock
                         key={i}
                         pokemonInfo={curr}
-                        getTypes={getTypes}
-                        getPokemonProps={getPokemonProps}
-                        types={types}
                     />
-                ) : null
+                    ) : null
             }
         </div>
     )

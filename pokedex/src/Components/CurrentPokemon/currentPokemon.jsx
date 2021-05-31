@@ -1,8 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './currentPokemon.css'
 
-const CurrentPokemon = (props) => {
-    const { currentPokemon } = props;
+const CurrentPokemon = () => {
+    const currentPokemon = useSelector(state => state.currentPokemon);
 
     const getProperty = (property) => {
         let result;
